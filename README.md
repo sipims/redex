@@ -58,11 +58,9 @@ Call this manually only if you want to set confs from your code, or your redis s
 
 ```javascript
 // Default settings
-
 redex.init();
 
 // Password & port
-
 redex.init({
 	"redis_port":1234,
 	"password":"foobar"

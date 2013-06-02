@@ -1,0 +1,6 @@
+{
+	"redex_prefix": "_REDEX",
+	"redis_port": 6379,
+	"max_results": 10,
+	"max_levenshtein_dept": 8
+}

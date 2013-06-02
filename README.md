@@ -2,6 +2,7 @@ Redex
 ===================
 
 Realtime full text indexing powered by redis & node.js.
+
 Redex can index JSON items and search through 5 million items within 70ms.
 
 Redex is a great solution for MongoDB external full text indexing;-)
@@ -85,11 +86,9 @@ Save a JSON item as a hash map into Redis and index it.
 var json1 = {word:"Peak Ji rocks",mongoID:1001,score:998};
 
 // Index on the 'word' attribute
-
 redex.add(json1,'word');
 
 // Index by given keywords
-
 redex.add(json1,['peak','sucks']);
 ```
 
@@ -116,6 +115,7 @@ Search and return matched records.
     - `start` & `end` - range
 
 ```javascript
+// Search for items with 'peak' and 'rock', then sort by 'score'
 redex.search(['peak','rocks'],{sort:'score'},function(data){
     console.log(data);
     redex.quit();

@@ -13,6 +13,7 @@ Redex is a great solution for MongoDB external full text indexing;-)
 
 - Insanely fast searching
 - Realtime indexing
+- Fuzzy Query
 - Automatic caching
 - JSON input/output
 - Sorting with options
@@ -40,8 +41,6 @@ Or from source:
 
 
 ## Usage
-
-There are only 4 APIs in Redex:
 
 ### init
 
@@ -103,14 +102,17 @@ Search and return matched records.
 - **keywords** can be a keyword string or an array of keywords;
 - **options** :
 
-	- `closest` - sort by the closest guess
-	- `sort` - sort on the given key
-    - `order` - 'ASCE' = 1 or 'DESC' = -1
-    - `leven` - use Levenshtein Distance to determine the closest item
-    - `expire` - cache search result for X secondes
-    - `key` - key string or an array of keys of the attribute(s) that you want
-    - `limit` - max items count
-    - `start` & `end` - range
+  - `fuzzy` (int) - redex can abandon [fuzzy] prefix & suffix keywords to make fuzzy query
+  - `closest` (string) - sort by the closest guess on the key [closest]
+  - `sort` (string) - sort on the [sort] key
+  - `order` (string/int) - 'ASCE' = 1 or 'DESC' = -1
+  - `leven` (string) - use Levenshtein Distance to determine the closest item on key [leven]
+  - `expire` (int) - cache search result for [expire] secondes
+  - `key` (string/array) - key string or an array of keys of the attribute(s) that you want
+  - `limit` (int) - max items count
+  - `start` & `end` (int) - sorting range
+
+- **callback** : function to get the results `function(data){...}`
 
 ```javascript
 // Search for items with 'peak' and 'rock', then sort by 'score'
@@ -134,9 +136,11 @@ redex.quit();
 
 ## TO-DO
 
-- Code is still dirty
+- Namespace for Multiple Indexes (actually now I use multiple Redex instances...)
+- OR searching
 - API for rebuild index
 - API for DELETE items
+- Code is still dirty
 
 ## License
 

@@ -2,7 +2,7 @@
   "author": "Yichao 'Peak' Ji <peakji@gmail.com> (http://www.peakji.com)",
   "name": "redex",
   "description": "Realtime full text indexing powered by redis & node.js.",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "tags": [
     "index",
     "redis",
